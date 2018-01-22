@@ -11,8 +11,8 @@
 	<div id="init" class="content  init">
 		<h1>hi,欢迎来到我的个人网站</h1>
 		<h2>一个前端工程师</h2>
-		<a href="#intro" class="btn">关于我</a>
-		<a href="#items" class="btn">作品集</a>
+		<a class="btn">关于我</a>
+		<a class="btn">作品集</a>
 	</div>
 	<div id="intro" class="content  intro">
 		<a class="img-wrap">
@@ -104,10 +104,18 @@ function init(){
 	$('.content').css('display','none')
 	$('.content').first().css('display','block')
 }
+//点击关于我
+$('#init a').first().on('click',function(){
+	tabPage(1)
+})
+//点击作品集
+$('#init a').last().on('click',function(){
+	tabPage(3)
+})
+
 //点击右侧导航
 $('nav a').on('click',function(){
-	num=$(this).index()
-	tabPage('',num)
+	tabPage($(this).index())
 })
 
 // 当滚动鼠标的时候
@@ -121,18 +129,18 @@ $('.content').mousewheel(function(event, delta) {
 			num=$('nav a').length-1
 		}
 		
-		tabPage($(this).index(),num)
+		tabPage(num)
 		
    }else{//向下滚动
    		num++
    		if(num > $('nav a').length-1){
 			num=0
 		}
-		tabPage($(this).index(),num)
+		tabPage(num)
    }
 	return false
 })
-function tabPage(This,el){
+function tabPage(el){
 	$('nav a').removeClass('active')
 	$('nav a').eq(el).addClass('active')
 	
