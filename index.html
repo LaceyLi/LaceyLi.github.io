@@ -1,5 +1,144 @@
-# LaceyLi.github.io
-个人博客
-hello word
-<br/>
-liqiuju.
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>简历</title>
+<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body> 
+	<div id="init" class="content  init">
+		<h1>hi,欢迎来到我的个人网站</h1>
+		<h2>一个前端工程师</h2>
+		<a href="#intro" class="btn">关于我</a>
+		<a href="#items" class="btn">作品集</a>
+	</div>
+	<div id="intro" class="content  intro">
+		<a class="img-wrap">
+			<img src="images/me.jpg">
+		</a>
+		<p class="text-justify">
+			您好，我是李秋菊，25岁，坐标深圳。 我是平面设计专业毕业，对前端很感兴趣，所以学了前端，今后的职业规划是朝着全栈发展。之前工作的岗位是前端开发，在公司主要负责整站页面的开发，配合后台人员实现产品前端界面效果与功能。写过响应式页面，移动端页面，pc端页面。
+		</p>
+	</div>
+	<div id="work" class="content work">
+		<h2>工作经验</h2>
+		<ul >
+			<li>
+				<h3>深圳出书啦网络科技有限公司 2016年11月 — 至今</h3>
+				<p>负责按照设计师设计的web页面进行PC页面、微信页面进行开发和日常维护。</p>
+				<p>
+					<span>pc官网：<a href="http://chushu.la/"> http://chushu.la</a> </span>
+					<span>微信公众号：chushula</span>
+				</p>
+			</li>
+			<li>
+				<h3>深圳市大数据世纪科技有限公司 2016年8月</h3>
+				<p>负责按照设计师设计的PC页面和移动端页面进行日常的HTML+CSS的开发和维护。根据交互设计师的设计及后台提供的数据接口编写JavaScript。</p>
+			</li>
+			<li>
+				<h3>深圳市龙霸科技有限公司 2016年4月 — 2016年7月</h3>
+				<p>负责微信公众号页面的制作。负责完成页面交互效果的制作。</p>
+			</li>
+		</ul>
+	</div>
+	<div id="items" class="content  items">
+		<h2>项目经验</h2>
+		<ul>
+			<li>
+				<a class="img-wrap" href="http://chushu.la/">
+					<img src="images/chushula.png">
+				</a>
+				<div class="text">
+					<h3><a href="http://chushu.la/">出书啦官网</a></h3>
+					<p>负责按照设计师设计的Web页面，进行移动端页面和PC页面开发工作，配合团队进行页面优化，完成HTML、LESS、CSS，Javascript、ajax相关开发工作，项目采用前后端分离的开发模式。</p>
+				</div>
+			</li>
+			<li>
+				<a class="img-wrap" href="http://liqiuju.applinzi.com/坚果/index.html">
+					<img src="images/jianguo.png">
+				</a>
+				<div class="text">
+					<h3><a href="http://liqiuju.applinzi.com/坚果/index.html">模拟坚果手机官网</a></h3>
+					<p>  当鼠标移动的过程中，图片有一个高低起伏的效果，距离鼠标越近的图片，显示的区域就越大，距离鼠标越远的图片，显示的区域就越小。当点击的过程中，会有一个图片居中放大的效果，再次点击时，图片会回到移动过程的效果。</p>
+				</div>
+			</li>
+			<li>
+				<a class="img-wrap"  href="http://liqiuju.applinzi.com/51you/index.html">
+					<img src="images/wuyiyou.png">
+				</a>
+				<div class="text">
+					<h3><a href="http://liqiuju.applinzi.com/51you/index.html">五一E起游（移动端）</a></h3>
+					<p>这是一个用于采集数据的微信项目，主要是运行在微信内置浏览器里面来使用的，会有移动端的入场动画制作，CSS3表单的美化控件制作，上传数据类型监测以及图片的划屏切换的效果。</p>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div id="shills" class="content shills">
+		<h2>擅长技术</h2>
+		<ul>
+			<li><span>HTML/HTML5</span><span>CSS/CSS3</span><span>JavaScript</span></li>
+			<li><span>jQuery</span><span>Bootstrap</span><span> Less</span><span>AJAX</span><span>Angularjs</span></li>
+			<li><span>PhotoShop</span><span>Sublime</span><span>git</span></li>
+			<li><a href="#"></a><a href="#"></a></li>
+		</ul>
+	</div>
+	<nav>
+		<a href="#init"></a>
+		<a href="#intro"></a>
+		<a href="#work"></a>
+		<a href="#items"></a>
+		<a href="#shills"></a>
+	</nav>
+<script src="js/jquery-1.11.1.js"></script>
+<script src="js/jquery.mousewheel.js"></script>
+<script>
+var num=0
+
+init() //页面进行初始化
+function init(){
+	$('nav a').removeClass('active')
+	$('nav a').first().addClass('active')
+	
+	$('.content').css('display','none')
+	$('.content').first().css('display','block')
+}
+//点击右侧导航
+$('nav a').on('click',function(){
+	num=$(this).index()
+	tabPage('',num)
+})
+
+// 当滚动鼠标的时候
+$('.content').mousewheel(function(event, delta) {
+
+	num=$(this).index()
+
+	if(delta==true){// 向上滚动
+		num--
+		if(num < 0){
+			num=$('nav a').length-1
+		}
+		
+		tabPage($(this).index(),num)
+		
+   }else{//向下滚动
+   		num++
+   		if(num > $('nav a').length-1){
+			num=0
+		}
+		tabPage($(this).index(),num)
+   }
+	return false
+})
+function tabPage(This,el){
+	$('nav a').removeClass('active')
+	$('nav a').eq(el).addClass('active')
+	
+	$('.content').slideUp()
+	$('.content').eq(el).slideDown()
+}
+</script>
+</body>
+</html>
